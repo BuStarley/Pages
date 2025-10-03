@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './header.css';
+import Auth from './auth.js';
 
 function Header() {
+    const [isAuthOpen, setIsAuthOpen] = useState(false);
+
     return (
+        <>
         <header className="header">
             <div className="container">
                 <div className="logo">
@@ -11,13 +15,27 @@ function Header() {
                 <nav className="nav">
                     <ul type="square" className="nav-list">
                         <li><a href="#home">Главная</a></li>
-                        <li><a href="#news">Новости</a></li>
-                        <li><a href="#profile">Профиль</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li>
+                            <button
+                                className="profile-btn"
+                                onClick={() => setIsModalOpen(true)}
+                            >
+                                Профиль
+                            </button>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </header>
-    )
+
+        <Auth
+            isOpen={isAuthOpen}
+            onClose={() => setIsAuthOpen(false)}
+        />
+    </>
+    );
 }
 
 export default Header
