@@ -3,7 +3,7 @@ import Footer from '../footer/footer';
 import Header from '../header/header';
 import './layout.css';
 
-function Layout() {
+function Layout({ children }) {
     return (
         <div className="layout">
             <Header />
